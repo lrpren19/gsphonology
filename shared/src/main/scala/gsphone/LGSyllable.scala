@@ -179,7 +179,7 @@ object LGSyllable {
         }
       })
   }
-  
+
   def elisionSplit(s: String): Vector[LiteraryGreekString] = {
     val vect = s.split("""(?<!᾽) """).filter(_.nonEmpty).toVector
     val gsVect = vect.map(LiteraryGreekString(_))
@@ -187,7 +187,7 @@ object LGSyllable {
   }
 
   def syllabify(s: String): Vector[LiteraryGreekString] = {
-    val vect = s.split(" ").filter(_.nonEmpty).toVector
+    val vect = s.split("""(?<!᾽) """).filter(_.nonEmpty).toVector
     val gsVect = vect.map(LiteraryGreekString(_))
     syllabify(gsVect)
   }
