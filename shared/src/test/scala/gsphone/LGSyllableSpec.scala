@@ -91,6 +91,12 @@ class LGSyllableSpec extends FlatSpec {
       val syllsAscii = sylls.map(_.ascii)
       assert(syllsAscii == Vector("e)/","qh","ken"))
   }
+  it should "not make a single consonant elision its own syllable" in {
+    val sylls = LGSyllable.elisionSplit("τίς τ᾽ ἄρ")
+    val syllsUcode = sylls.map(_.ucode)
+    assert(syllsUcode == Vector("τίς", "τ᾽ ἄρ"))
+  }
+
 
 /*
 def testMap = [
